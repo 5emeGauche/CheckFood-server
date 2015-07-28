@@ -1,0 +1,77 @@
+10
+
+dir
+181
+https://pm.proxym-it.com/svn/checkfood/trunk/BackOffice/src/Checkfood/DepotsBundle
+https://pm.proxym-it.com/svn/checkfood
+
+
+
+2014-05-30T10:55:50.932612Z
+171
+safwen.toukabri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+769a39ff-f92d-4fcd-882d-41efb628b811
+
+DependencyInjection
+dir
+
+Tests
+dir
+
+Controller
+dir
+
+CheckfoodDepotsBundle.php
+file
+
+
+
+
+2014-06-02T13:12:34.891261Z
+dad905deb41bb8f5893f346f85a01b28
+2014-05-06T17:33:26.029738Z
+46
+mejdi.marzouk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+138
+
+Resources
+dir
+
+Entity
+dir
+

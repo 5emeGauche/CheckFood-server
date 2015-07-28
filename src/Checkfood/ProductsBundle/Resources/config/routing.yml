@@ -1,0 +1,15 @@
+checkfood_products:
+    pattern:  /products
+    defaults: { _controller: CheckfoodProductsBundle:Default:index }
+checkfood_products_delete:
+    pattern:  /products/{id}/delete
+    defaults: { _controller: CheckfoodProductsBundle:Default:delete }
+checkfood_products_delete_all:
+    pattern:  /products/delete-all
+    defaults: { _controller: CheckfoodProductsBundle:Default:deleteAll }
+    
+checkfood_product:
+    pattern:  /product/{code}
+    defaults: { _controller: CheckfoodProductsBundle:Default:getProduct }
+    methods:  [GET]
+    

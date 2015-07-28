@@ -1,0 +1,26 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+#    ***********preprod*************
+#    database_name:     checkfood_preprod
+#    database_user:     checkfood
+#    database_password: C9XEhtWE8GzWeUGrvqYu
+
+#    ***********prod*************
+    database_name:     checkfood
+    database_user:     checkfood
+    database_password: C9XEhtWE8GzWeUGrvqYu
+    
+#    **********local****************
+#    database_name:     checkfood-db
+#    database_user:     root
+#    database_password: root
+
+    mailer_transport:  smtp 
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

@@ -1,0 +1,14 @@
+checkfood_dashboard:
+    pattern:  /
+    defaults: { _controller: CheckfoodCentralBundle:Default:index }
+
+checkfood_central_homepage:
+    pattern:  /home
+    defaults: { _controller: CheckfoodCentralBundle:Default:index }
+
+checkfood_signout:
+    pattern:  /signout
+    defaults: { _controller: CheckfoodCentralBundle:Default:signout }
+    
+
+

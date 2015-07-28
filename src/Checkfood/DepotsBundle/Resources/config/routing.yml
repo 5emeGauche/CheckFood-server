@@ -1,0 +1,12 @@
+checkfood_depots:
+    pattern:  /points-depots
+    defaults: { _controller: CheckfoodDepotsBundle:Default:index }
+checkfood_depots_delete:
+    pattern:  /points-depots/{id}/delete
+    defaults: { _controller: CheckfoodDepotsBundle:Default:delete }
+checkfood_depots_delete_all:
+    pattern:  /points-depots/delete-all
+    defaults: { _controller: CheckfoodDepotsBundle:Default:deleteAll }
+checkfood_get_depots:
+    pattern:  /depots
+    defaults: { _controller: CheckfoodDepotsBundle:Default:getDepots }

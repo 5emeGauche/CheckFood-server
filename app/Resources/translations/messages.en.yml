@@ -1,0 +1,7 @@
+customer:
+  errors:
+    error_title: error customer
+    name: Le prénom invalide ou manquant.
+    fields:
+      name: Prénom
+      pattern_height: Raccord en hauteur

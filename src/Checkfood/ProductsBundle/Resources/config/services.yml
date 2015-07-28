@@ -1,0 +1,7 @@
+parameters:
+#    checkfood_products.example.class: Checkfood\ProductsBundle\Example
+
+services:
+#    checkfood_products.example:
+#        class: %checkfood_products.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

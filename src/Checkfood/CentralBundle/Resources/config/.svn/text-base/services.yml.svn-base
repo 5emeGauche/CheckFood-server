@@ -1,0 +1,10 @@
+parameters:
+    checkfood_central.central.class: Checkfood\CentralBundle\Services\CentralService
+    checkfood_parse_csv.class: Checkfood\CentralBundle\Services\parseCSV
+
+services:
+    checkfood_central.central:
+        class: %checkfood_central.central.class%
+    checkfood_parse_csv:
+        class: %checkfood_parse_csv.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

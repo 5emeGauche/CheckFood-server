@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/checkfood/!svn/ver/181/trunk/BackOffice/app/config
+END
+config_dev.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/config_dev.yml
+END
+parameters.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/checkfood/!svn/ver/181/trunk/BackOffice/app/config/parameters.yml
+END
+config_test.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/config_test.yml
+END
+config.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/config.yml
+END
+routing_dev.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/routing_dev.yml
+END
+routing.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/checkfood/!svn/ver/46/trunk/BackOffice/app/config/routing.yml
+END
+security.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/security.yml
+END
+admin.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/admin.yml
+END
+config_prod.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/config/config_prod.yml
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/checkfood/!svn/ver/181/trunk/BackOffice/app
+END
+SymfonyRequirements.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/SymfonyRequirements.php
+END
+autoload.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/autoload.php
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/console
+END
+check.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/check.php
+END
+bootstrap.php.cache
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/bootstrap.php.cache
+END
+AppKernel.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/checkfood/!svn/ver/46/trunk/BackOffice/app/AppKernel.php
+END
+phpunit.xml.dist
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/phpunit.xml.dist
+END
+AppCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/AppCache.php
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/app/.htaccess
+END

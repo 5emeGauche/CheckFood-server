@@ -1,0 +1,9 @@
+parameters:
+    admin:
+      name: adminName
+      lastname: adminLastName
+      login: user
+      password: admin
+
+    params:
+      items_per_page: 20

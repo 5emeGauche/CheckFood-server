@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/checkfood/!svn/ver/164/trunk/BackOffice/src/Checkfood/DepotsBundle/Entity
+END
+Depots.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/checkfood/!svn/ver/56/trunk/BackOffice/src/Checkfood/DepotsBundle/Entity/Depots.php
+END
+DepotsRepository.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/checkfood/!svn/ver/164/trunk/BackOffice/src/Checkfood/DepotsBundle/Entity/DepotsRepository.php
+END

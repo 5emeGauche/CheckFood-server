@@ -1,0 +1,80 @@
+10
+
+dir
+181
+https://pm.proxym-it.com/svn/checkfood/trunk/BackOffice/src/Checkfood/CentralBundle
+https://pm.proxym-it.com/svn/checkfood
+
+
+
+2014-05-15T11:22:06.904151Z
+114
+safwen.toukabri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+769a39ff-f92d-4fcd-882d-41efb628b811
+
+CheckfoodCentralBundle.php
+file
+
+
+
+
+2014-06-02T13:12:34.847261Z
+6f78f2ca7a7b5525e0ae657b3de811e5
+2014-04-30T17:08:55.811995Z
+30
+safwen.toukabri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+140
+
+DependencyInjection
+dir
+
+Tests
+dir
+
+Controller
+dir
+
+Services
+dir
+
+Listener
+dir
+
+Resources
+dir
+

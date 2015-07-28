@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" /> 
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Bootstrap framework -->
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-responsive.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/cheqlib/css/layout.css') }}" />
+        {% block stylesheets %}{% endblock %}
+        <script src="{{ asset('bootstrap/js/jquery-1.9.1.min.js') }}"></script>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+	<div id="wrap">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="{{ path('checkfood_central_homepage') }}">CHECKFOOD</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li {% if app.request.attributes.get('_route') == 'checkfood_products' %}class="active"{% endif %}><a href="{{ path('checkfood_products') }}">Produits</a></li>
+                        <li {% if app.request.attributes.get('_route') == 'checkfood_depots' %}class="active"{% endif %}><a href="{{ path('checkfood_depots') }}">Points de dépots</a></li>
+                    </ul>
+                    {% set admin = app.session.get('admin') %}
+                     <ul class="nav pull-right">
+                         <li><span class="btn navbar-link disabled" >{% if admin %} Bonjour <strong>{{ admin.name }} {{ admin.lastname }}</strong> {% endif %}</span></li>
+                        <li><a href="{{ path('checkfood_signout') }}"><i class="icon-off"></i></a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+	</div>
+	<div id="footer">
+      <div class="container">
+        <p class="muted credit text-right">&copy; Copyright <a href="#">Checkfood</a> 2014</p>
+      </div>
+    </div>
+    
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.file-input.js') }}"></script>
+    <script src="{{ asset('bundles/cheqlib/js/jscolor.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+    
+    </body>
+</html>

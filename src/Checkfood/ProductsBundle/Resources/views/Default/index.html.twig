@@ -1,0 +1,158 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<link rel="stylesheet" href="{{ asset('bundles/cheqlib/css/colorbox.css') }}" />
+<div class="contentHead">
+    <h2>Produits</h2>
+    {% for type, messages in app.session.flashbag.All() if messages|length > 0 %}
+    <div class="alert {{ type }}">  
+        <a class="close" data-dismiss="alert">×</a>
+        <ol style="margin: 0 30px;">
+        {% for message in messages  %}
+            <li>{{ message|capitalize }}</li>
+        {% endfor %}
+        </ol>
+    </div>
+    {% endfor %}
+    
+    {% if formErors|length > 0 %}
+    <div class="alert alert-error">  
+        <a class="close" data-dismiss="alert">×</a>
+        <ol>
+        {% for formEror in formErors %}
+            <li>{{ formEror }}</li>
+        {% endfor %}
+            <ol>
+                </div>
+    {% endif %}
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th style="text-align:right;">#</th>
+            <th>Code barres</th>
+            <th>Product Name</th>
+            <th>Product Brand</th>
+            <th>Image Url</th>
+            <th>Image Small Url</th>
+            <th style="text-align:center;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr id="product_{{ product.id }}">
+            <td style="text-align:right;">{{ product.id }}</td>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.imageUrl }}</td>
+            <td>{{ product.imageSmallUrl }}</td>
+            <td style="text-align:center;">
+                <a href="#" class="delete_row" data-id="{{ product.id }}" title="Supprimer"><i class="icon-trash"></i></a>
+            </td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+<div class="text-right">{{ pagination|raw }}</div>
+
+<a href="#" onclick="deleteAll();"><i class="icon-trash"></i> Supprimer tous les produits</a>
+<div class="clearfix-20"></div>
+
+<div class="hide">
+    <div id="single_confirm_dialog" class="cbox_content">
+        <div class="sepH_c tac"><strong>Etes vous sûr de vouloir supprimer ce produit ?</strong></div>
+        <div class="tac user">
+            <a href="#" class="btn btn-gebo confirm_yes">Oui</a>
+            <a href="#" class="btn confirm_no">Non</a>
+        </div>
+    </div>
+</div>
+<div class="hide">
+        <div id="all_confirm_dialog" class="cbox_content">
+            <div class="sepH_c tac"><strong>Etes vous sûr de vouloir supprimer tous les produits ?</strong></div>
+            <div class="tac user">
+                <a href="#" class="btn btn-gebo confirm_yes">Oui</a>
+                <a href="#" class="btn confirm_no">Non</a>
+            </div>
+        </div>
+    </div>
+<form method="post" action="{{ path('checkfood_products') }}" {{ form_enctype(form) }}>
+    <fieldset>
+        <legend>Importer des produits :</legend>
+        <div class="pull-left" style="margin-right:8px">{{ form_widget(form) }}</div>
+        <button type="submit" class="btn btn-primary pull-left">Submit</button>
+    </fieldset>
+</form>
+
+<script src="{{ asset('bootstrap/js/jquery.colorbox.js') }}"></script>
+<script type="text/javascript">
+        function deleteAll(){
+            link = "{{ path('checkfood_products_delete_all') }}";
+            $.colorbox({
+                initialHeight: '0',
+                initialWidth: '0',
+                href: "#all_confirm_dialog",
+                inline: true,
+                opacity: '0.3',
+                onComplete: function(){
+                    $('.confirm_yes').bind('click', function(e){
+                        e.preventDefault();
+                        $('.confirm_yes').unbind('click');
+                        window.location=link;
+                        $.colorbox.close();
+                    });
+                    $('.confirm_no').bind('click', function(e){
+                        e.preventDefault();
+                        $('.confirm_no').unbind('click');
+                        $.colorbox.close(); 
+                    });
+                }
+            });
+        }    
+    
+ 	$(".delete_row").click(function (e) {
+         e.preventDefault();
+         id = $(this).data('id');
+         link = '{{ path('checkfood_products_delete',{'id':'XRT'}) }}'.replace('XRT',id);
+         $.colorbox({
+             initialHeight: '0',
+             initialWidth: '0',
+             href: "#single_confirm_dialog",
+             inline: true,
+             opacity: '0.3',
+             onComplete: function(){
+                 $('.confirm_yes').bind('click', function(e){
+                     e.preventDefault();
+                     $('.confirm_yes').unbind('click');
+                     deleteItem(id, link);
+                     $.colorbox.close();
+                 });
+                 $('.confirm_no').bind('click', function(e){
+                     e.preventDefault();
+                     $('.confirm_no').unbind('click');
+                     $.colorbox.close(); 
+                 });
+             }
+         });
+	});  
+ 	function deleteItem(id, link){
+        $.ajax({
+            type: "POST",
+            url: link,
+            dataType: "json",
+            success: function(data){
+                if(!data.is_valid){
+                    var error = '';
+                    var errors_array = data.errors;
+                    for(i in data.errors){
+                        error += data.errors[i]+'\n';
+                    }
+                    alert(error);
+                }else{
+                        $("#product_"+id).remove();
+                }
+             }
+        });
+     }
+</script> 
+{% endblock %}

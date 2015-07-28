@@ -1,0 +1,16 @@
+customer:
+  errors:
+    notblank:
+      name: Le prénom invalide ou manquant.
+      lastname: Le nom invalide ou manquant.
+      estbReference: Référence client invalide ou manquant.
+      estbContract: Numéro du contrat invalide ou manquant.
+      updatedAt:
+      createdAt:
+      ibanCodePays: Code pays (IBAN) invalide ou manquant.
+      ibanCleControle: Clé de contrôle (IBAN) invalide ou manquant.
+    length:
+      estbReference: La référence client doit avoir exactement 11 caractères.
+      estbContract: Le numéro de contrat doit avoir exactement 17 caractères.
+      ibanCodePays: Code pays (IBAN) doit avoir exactement 2 caractères
+      ibanCleControle: Clé de contrôle (IBAN) doit avoir exactement 2 caractères

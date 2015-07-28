@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Bootstrap framework -->
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-responsive.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/cheqlib/css/layout.css') }}" />
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body id="login">
+    <div class="container">
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </div>
+
+	<div id="footer">
+      <div class="container">
+        <p class="muted credit text-right">&copy; Copyright <a href="#">Checkfood</a> 2014</p>
+      </div>
+    </div>
+    <script src="{{ asset('bootstrap/js/jquery-1.9.1.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/cheqlib/js/jscolor.js') }}"></script>
+    </body>
+</html>

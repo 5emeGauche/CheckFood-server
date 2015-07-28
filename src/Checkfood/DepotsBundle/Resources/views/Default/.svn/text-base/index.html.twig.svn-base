@@ -1,0 +1,160 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<link rel="stylesheet" href="{{ asset('bundles/cheqlib/css/colorbox.css') }}" />
+<div class="contentHead">
+    <h2>Points de dépots</h2>
+    {% for type, messages in app.session.flashbag.All() if messages|length > 0 %}
+    <div class="alert {{ type }}">  
+        <a class="close" data-dismiss="alert">×</a>
+        <ol style="margin: 0 30px;">
+        {% for message in messages  %}
+            <li>{{ message|capitalize }}</li>
+        {% endfor %}
+        </ol>
+    </div>
+    {% endfor %}
+</div>
+    
+    {% if formErors|length > 0 %}
+    <div class="alert alert-error">  
+        <a class="close" data-dismiss="alert">×</a>
+        <ol>
+        {% for formEror in formErors %}
+            <li>{{ formEror }}</li>
+        {% endfor %}
+        </ol>
+    </div>
+    {% endif %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th style="text-align:right;">#</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Horaire d'ouverture</th>
+                <th>Horaire de Fermiture</th>
+                <th style="text-align:center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for depot in depots %}
+            <tr id="depot_{{ depot.id }}">
+                <td style="text-align:right;">{{ depot.id }}</td>
+                <td>{{ depot.name }}</td>
+                <td>{{ depot.address }}</td>
+                <td>{{ depot.longitude }}</td>
+                <td>{{ depot.latitude }}</td>
+                <td>{{ depot.openingTime }}</td>
+                <td>{{ depot.closingTime }}</td>
+                <td style="text-align:center;">
+                    <a href="#" class="delete_row" data-id="{{ depot.id }}" title="Supprimer"><i class="icon-trash"></i></a>
+                </td>
+            </tr>
+  {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-right">{{ pagination|raw }}</div>
+    
+    <a href="#" onclick="deleteAll();"><i class="icon-trash"></i> Supprimer tous les points de dépots</a>
+    <div class="clearfix-20"></div>
+ 
+    <div class="hide">
+        <div id="single_confirm_dialog" class="cbox_content">
+            <div class="sepH_c tac"><strong>Etes vous sûr de vouloir supprimer ce point de dépots ?</strong></div>
+            <div class="tac user">
+                <a href="#" class="btn btn-gebo confirm_yes">Oui</a>
+                <a href="#" class="btn confirm_no">Non</a>
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div id="all_confirm_dialog" class="cbox_content">
+            <div class="sepH_c tac"><strong>Etes vous sûr de vouloir supprimer tous les points de dépots ?</strong></div>
+            <div class="tac user">
+                <a href="#" class="btn btn-gebo confirm_yes">Oui</a>
+                <a href="#" class="btn confirm_no">Non</a>
+            </div>
+        </div>
+    </div>
+    <form method="post" action="{{ path('checkfood_depots') }}" {{ form_enctype(form) }}>
+        <fieldset>
+            <legend>Importer des points de dépots :</legend>
+            <div class="pull-left" style="margin-right:8px">{{ form_widget(form) }}</div>
+            <button type="submit" class="btn btn-primary pull-left">Submit</button>
+        </fieldset>
+    </form>
+    
+<script src="{{ asset('bootstrap/js/jquery.colorbox.js') }}"></script>
+<script type="text/javascript">
+        function deleteAll(){
+            link = "{{ path('checkfood_depots_delete_all') }}";
+            $.colorbox({
+                initialHeight: '0',
+                initialWidth: '0',
+                href: "#all_confirm_dialog",
+                inline: true,
+                opacity: '0.3',
+                onComplete: function(){
+                    $('.confirm_yes').bind('click', function(e){
+                        e.preventDefault();
+                        $('.confirm_yes').unbind('click');
+                        window.location=link;
+                        $.colorbox.close();
+                    });
+                    $('.confirm_no').bind('click', function(e){
+                        e.preventDefault();
+                        $('.confirm_no').unbind('click');
+                        $.colorbox.close(); 
+                    });
+                }
+            });
+        }    
+    
+ 	$(".delete_row").click(function (e) {
+         e.preventDefault();
+         id = $(this).data('id');
+         link = '{{ path('checkfood_depots_delete',{'id':'XRT'}) }}'.replace('XRT',id);
+         $.colorbox({
+             initialHeight: '0',
+             initialWidth: '0',
+             href: "#single_confirm_dialog",
+             inline: true,
+             opacity: '0.3',
+             onComplete: function(){
+                 $('.confirm_yes').bind('click', function(e){
+                     e.preventDefault();
+                     $('.confirm_yes').unbind('click');
+                     deleteItem(id, link);
+                     $.colorbox.close();
+                 });
+                 $('.confirm_no').bind('click', function(e){
+                     e.preventDefault();
+                     $('.confirm_no').unbind('click');
+                     $.colorbox.close(); 
+                 });
+             }
+         });
+	});  
+ 	function deleteItem(id, link){
+        $.ajax({
+            type: "POST",
+            url: link,
+            dataType: "json",
+            success: function(data){
+                if(!data.is_valid){
+                    var error = '';
+                    var errors_array = data.errors;
+                    for(i in data.errors){
+                        error += data.errors[i]+'\n';
+                    }
+                    alert(error);
+                }else{
+                    $("#depot_"+id).remove();
+                }
+             }
+        });
+     }
+</script> 
+{% endblock %}

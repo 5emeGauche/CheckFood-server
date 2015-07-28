@@ -1,0 +1,11 @@
+checkfood_depots:
+    resource: "@CheckfoodDepotsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+checkfood_products:
+    resource: "@CheckfoodProductsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+checkfood_central:
+    resource: "@CheckfoodCentralBundle/Resources/config/routing.yml"
+    prefix:   /

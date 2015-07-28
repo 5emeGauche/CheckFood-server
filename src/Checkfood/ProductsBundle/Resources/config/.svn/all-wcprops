@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/checkfood/!svn/ver/164/trunk/BackOffice/src/Checkfood/ProductsBundle/Resources/config
+END
+routing.yml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/checkfood/!svn/ver/164/trunk/BackOffice/src/Checkfood/ProductsBundle/Resources/config/routing.yml
+END
+services.yml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/checkfood/!svn/ver/30/trunk/BackOffice/src/Checkfood/ProductsBundle/Resources/config/services.yml
+END
